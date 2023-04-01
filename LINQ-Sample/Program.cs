@@ -6,8 +6,8 @@
     try
     {
 
-    // Call Sample Method
-    var result = vm.FirstOrDefaultMethod();
+        // Call Sample Method
+        var result = vm.LastMethod();
 
         // Display Results
         vm.Display(result);

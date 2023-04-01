@@ -498,43 +498,7 @@ namespace LINQSamples
         }
         #endregion
 
-        #region FirstOrDefaultWithDefaultQuery
-        /// <summary>
-        /// Locate a specific product using FirstOrDefault(). FirstOrDefault() searches forward in the list.
-        /// NOTE: You may specify the return value with FirstOrDefault() if not found
-        /// Use FirstOrDefault() when you DON'T know if a collection might have one element you are looking for
-        /// Using FirstOrDefault() avoids throwing an exception which can hurt performance
-        /// </summary>
-        public Product FirstOrDefaultWithDefaultQuery()
-        {
-            List<Product> products = GetProducts();
-            Product value = null;
 
-            // Write Query Syntax Here
-
-            // Test the exception handling
-
-            return value;
-        }
-        #endregion
-
-        #region FirstOrDefaultWithDefaultMethod
-        /// <summary>
-        /// Locate a specific product using FirstOrDefault(). FirstOrDefault() searches forward in the list.
-        /// NOTE: You may specify the return value with FirstOrDefault() if not found
-        /// Use FirstOrDefault() when you DON'T know if a collection might have one element you are looking for
-        /// Using FirstOrDefault() avoids throwing an exception which can hurt performance
-        /// </summary>
-        public Product FirstOrDefaultWithDefaultMethod()
-        {
-            List<Product> products = GetProducts();
-            Product value = null;
-
-            // Write Method Syntax Here
-
-            return value;
-        }
-        #endregion
 
         #region LastQuery
         /// <summary>
@@ -547,8 +511,14 @@ namespace LINQSamples
             Product value = null;
 
             // Write Query Syntax Here
+            value = (from prod in products
+                     select prod)
+                     .Last(prod => prod.Color == "Red");
 
             // Test the exception handling
+            //value = (from prod in products
+            //         select prod)
+            //        .Last(prod => prod.Color == "Purple");
 
             return value;
         }
@@ -565,7 +535,7 @@ namespace LINQSamples
             Product value = null;
 
             // Write Method Syntax Here
-
+            value = products.Last(p => p.Color == "Red");
 
             return value;
         }
