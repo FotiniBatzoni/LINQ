@@ -654,14 +654,33 @@ namespace LINQSamples
             Product value = null;
 
             // Write Query Syntax Here
-
+            //value = (from p in products
+            //         select p)
+            //          .SingleOrDefault(p => p.ProductID == 706);
 
             // Test the exception handling for finding multiple values
+            //value = (from prod in products
+            //         select prod)
+            //        .SingleOrDefault(p => p.Color == "Red");
+
 
 
             // Test the exception handling for the list is empty
+            //products.Clear();
+            //value = (from p in products
+            //         select p)
+            //          .SingleOrDefault(p => p.ProductID == 706);
 
             // Test the exception handling for the list is empty and a default value is supplied
+            products.Clear();
+            value = (from p in products
+                     select p)
+                      .SingleOrDefault(p => p.ProductID == 706,
+                                        new Product
+                                        {
+                                            ProductID = -1,
+                                            Name = "NOT FOUND"
+                                        });
 
             // Test the exception handling for the list is null
 
@@ -682,7 +701,7 @@ namespace LINQSamples
             Product value = null;
 
             // Write Method Syntax Here
-
+            value = products.SingleOrDefault(p => p.ProductID == 706);
 
             return value;
         }

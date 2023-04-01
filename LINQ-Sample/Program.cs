@@ -6,9 +6,8 @@
     try
     {
 
-        // Call Sample Method
-        var result = vm.SingleMethod();
-
+    // Call Sample Method
+    var result = vm.SingleOrDefaultMethod();
         // Display Results
         vm.Display(result);
     }
