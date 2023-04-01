@@ -250,7 +250,9 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Query Syntax Here
-
+            list = (from p in products
+                    orderby p.Color descending, p.Name ascending
+                    select p).ToList();
 
             return list;
         }
@@ -266,7 +268,8 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Method Syntax Here
-
+            list = products.OrderByDescending(prod => prod.Color)
+                  .ThenBy(prod => prod.Name).ToList();
 
             return list;
         }
