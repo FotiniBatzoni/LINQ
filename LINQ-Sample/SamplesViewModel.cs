@@ -182,7 +182,9 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Query Syntax Here
-
+            list = (from prod in products
+                    orderby prod.Name 
+                    select prod).ToList();
 
             return list;
         }
@@ -198,7 +200,7 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Method Syntax Here
-
+            list = products.OrderBy(prod => prod.Name).ToList();
 
             return list;
         }
