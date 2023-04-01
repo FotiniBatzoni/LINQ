@@ -605,11 +605,21 @@ namespace LINQSamples
             Product value = null;
 
             // Write Query Syntax Here
+            value = (from p in products
+                     select p)
+                     .Single(p => p.ProductID == 706);
 
             // Test the exception handling for finding multiple values
+            //value = (from prod in products
+            //         select prod)
+            //        .Single(p => p.Color == "Red");
 
             // Test the exception handling for the list is null
-
+            //products = null;
+            //value = (from p in products
+            //         select p)
+            //         .Single(p => p.ProductID == 706);
+            
             return value;
         }
         #endregion
@@ -626,6 +636,7 @@ namespace LINQSamples
             Product value = null;
 
             // Write Method Syntax Here
+            value = products.Single(p => p.ProductID == 706);
 
             return value;
         }
