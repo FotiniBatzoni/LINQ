@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.SkipWhileQuery();
+    var result = vm.DistinctWhere();
         // Display Results
         vm.Display(result);
     }

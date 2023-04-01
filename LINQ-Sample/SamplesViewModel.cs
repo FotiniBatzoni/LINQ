@@ -899,7 +899,8 @@ namespace LINQSamples
             List<string> list = new();
 
             // Write Query Syntax Here
-
+            list = (from p in products
+                    select p.Color).Distinct().OrderBy(c => c).ToList();
 
             return list;
         }
@@ -916,7 +917,7 @@ namespace LINQSamples
             List<string> list = new();
 
             // Write Method Syntax Here
-
+            list = products.Select(p => p.Color).Distinct().OrderBy(c => c).ToList();
 
             return list;
         }
