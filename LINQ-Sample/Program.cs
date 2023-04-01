@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.TakeWhileMethod();
+    var result = vm.SkipMethod();
         // Display Results
         vm.Display(result);
     }

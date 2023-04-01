@@ -824,6 +824,11 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Query Syntax Here
+            list = (from p in products
+                    orderby p.Name
+                    select p)
+                    .Skip(30)
+                    .ToList();
 
 
             return list;
@@ -840,6 +845,7 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Method Syntax Here
+            list = products.OrderBy(p => p.Name) .Skip(30).ToList();
 
 
             return list;
