@@ -371,6 +371,8 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Query Syntax Here
+            list = (from prod in products
+                    select prod).ByColor("Red").ToList();
 
             return list;
         }
@@ -386,7 +388,7 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Method Syntax Here
-
+            list = products.ByColor("Red").ToList();
 
             return list;
         }
