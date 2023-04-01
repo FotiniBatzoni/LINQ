@@ -1,10 +1,24 @@
-﻿using LINQSamples;
+﻿    using LINQSamples;
 
-// Create instance of view model
-SamplesViewModel vm = new();
+    // Create instance of view model
+    SamplesViewModel vm = new();
 
-// Call Sample Method
-var result = vm.WhereExtensionMethod();
+    try
+    {
 
-// Display Results
-vm.Display(result);
+        // Call Sample Method
+        var result = vm.FirstQuery();
+
+        // Display Results
+        vm.Display(result);
+    }
+    catch (ArgumentNullException ex)
+    {
+        vm.Display(ex);
+    }
+    catch (InvalidOperationException ex)
+    {
+        vm.Display(ex);
+    }
+
+
