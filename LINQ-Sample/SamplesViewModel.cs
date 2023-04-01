@@ -434,6 +434,7 @@ namespace LINQSamples
             Product value = null;
 
             // Write Method Syntax Here
+            value = products.First(p => p.Color == "Red");
 
             return value;
         }

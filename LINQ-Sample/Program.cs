@@ -6,8 +6,8 @@
     try
     {
 
-        // Call Sample Method
-        var result = vm.FirstQuery();
+    // Call Sample Method
+    var result = vm.FirstMethod();
 
         // Display Results
         vm.Display(result);
