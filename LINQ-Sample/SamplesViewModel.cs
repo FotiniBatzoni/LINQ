@@ -752,6 +752,10 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Query Syntax Here
+            list = (from p in products
+                    orderby p.Name
+                    select p)
+                    .Take(5..8).ToList();
  
             return list;
         }
@@ -767,7 +771,7 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Query Syntax Here
-
+            list = products.OrderBy(p => p.Name).Take(5..8).ToList();
 
             return list;
         }
