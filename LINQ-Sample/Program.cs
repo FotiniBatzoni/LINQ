@@ -7,8 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.TakeRangeMethod();
-
+    var result = vm.TakeWhileMethod();
         // Display Results
         vm.Display(result);
     }

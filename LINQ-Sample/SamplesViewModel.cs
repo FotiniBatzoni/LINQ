@@ -787,7 +787,11 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Query Syntax Here
-
+            list = ( from p in products
+                     orderby p.Name
+                     select p)
+                     .TakeWhile(p => p.Name.StartsWith("A"))
+                     .ToList();
 
             return list;
         }
@@ -803,6 +807,7 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Method Syntax Here
+            list = products.OrderBy(p => p.Name).TakeWhile(p => p.Name.StartsWith("A")).ToList();
 
 
             return list;
