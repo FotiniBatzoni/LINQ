@@ -963,7 +963,10 @@ namespace LINQSamples
             List<Product[]> list = new();
 
             // Write Query Syntax Here
-
+            list = (from p in products
+                    select p)
+                    .Chunk(5)
+                    .ToList();
 
             return list;
         }
@@ -979,7 +982,7 @@ namespace LINQSamples
             List<Product[]> list = new();
 
             // Write Method Syntax Here
-
+            list = products.Chunk(5).ToList();
 
             return list;
         }
