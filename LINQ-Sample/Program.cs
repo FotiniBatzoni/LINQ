@@ -7,7 +7,9 @@
     {
 
     // Call Sample Method
-    var result = vm.SingleOrDefaultMethod();
+    var result = vm.TakeMethod();
+
+
         // Display Results
         vm.Display(result);
     }
