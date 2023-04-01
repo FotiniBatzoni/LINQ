@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Xml.Linq;
 
 namespace LINQSamples
 {
@@ -453,8 +454,21 @@ namespace LINQSamples
             Product value = null;
 
             // Write Query Syntax Here
+            //value = (from prod in products
+            //         select prod)
+            //        .FirstOrDefault(prod => prod.Color == "Red",
+            //        new Product { ProductID = -1,
+            //                      Name = "NOT FOUND"});
 
             // Test the exception handling
+            value = (from prod in products
+                     select prod)
+                    .FirstOrDefault(prod => prod.Color == "purple",
+                        new Product
+                        {
+                            ProductID = -1,
+                            Name = "NOT FOUND"
+                        });
 
             return value;
         }
@@ -473,6 +487,12 @@ namespace LINQSamples
             Product value = null;
 
             // Write Method Syntax Here
+            value = products.FirstOrDefault(p => p.Color == "purple",
+                 new Product
+                 {
+                     ProductID = -1,
+                     Name = "NOT FOUND"
+                 });
 
             return value;
         }
