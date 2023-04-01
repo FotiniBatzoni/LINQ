@@ -845,7 +845,8 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Method Syntax Here
-            list = products.OrderBy(p => p.Name) .Skip(30).ToList();
+            //Pagining
+            list = products.OrderBy(p => p.Name).Skip(5).Take(5).ToList();
 
 
             return list;
@@ -862,7 +863,10 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Query Syntax Here
-
+            list = (from p in products
+                    orderby p.Name
+                    select p)
+                    .SkipWhile(p => p.Name.StartsWith("A")).ToList();   
 
             return list;
         }
@@ -878,7 +882,7 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Method Syntax Here
-
+            list = products.OrderBy(p => p.Name).SkipWhile(p => p.Name.StartsWith("A")).ToList();
 
             return list;
         }
