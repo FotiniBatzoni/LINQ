@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.DistinctWhere();
+    var result = vm.DistinctByMethod();
         // Display Results
         vm.Display(result);
     }
