@@ -407,8 +407,15 @@ namespace LINQSamples
             Product value = null;
 
             // Write Query Syntax Here
+            value = (from prod in products
+                     select prod)
+                      .First(prod => prod.Color == "Red");
+
 
             // Test the exception handling
+            //  value = (from prod in products
+            //           select prod)
+            //.First(prod => prod.Color == "purple");
 
             return value;
         }
