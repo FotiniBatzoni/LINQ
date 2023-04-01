@@ -4,7 +4,7 @@
 SamplesViewModel vm = new();
 
 // Call Sample Method
-var result = vm.OrderByMethod();
+var result = vm.OrderByDescendingMethod();
 
 // Display Results
 vm.Display(result);
