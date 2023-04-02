@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.SequenceEqualObjectsMethod();
+    var result = vm.SequenceEqualUsingComparerMethod();
         // Display Results
         vm.Display(result);
     }

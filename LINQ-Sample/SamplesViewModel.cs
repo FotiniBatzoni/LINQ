@@ -1272,16 +1272,20 @@ namespace LINQSamples
         {
             bool value = false;
             ProductComparer pc = new ProductComparer();
+
             // Load all Product Data From Data Source 1
             List<Product> list1 = ProductRepository.GetAll();
+
             // Load all Product Data From Data Source 2
             List<Product> list2 = ProductRepository.GetAll();
 
             // Remove an element from 'list1' to make the collections different
-            //list1.RemoveAt(0);
+            list1.RemoveAt(0);
 
             // Write Query Syntax Here
-
+            value = (from prod in list1 
+                     select prod)
+                     .SequenceEqual(list2, pc);
 
             return value;
         }
@@ -1304,6 +1308,7 @@ namespace LINQSamples
             //list1.RemoveAt(0);
 
             // Write Method Syntax Here
+            value = list1.SequenceEqual(list2, pc);
 
 
             return value;
