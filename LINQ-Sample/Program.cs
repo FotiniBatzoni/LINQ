@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.ExceptByMethod();
+    var result = vm.ExceptByProductSalesMethod();
         // Display Results
         vm.Display(result);
     }
