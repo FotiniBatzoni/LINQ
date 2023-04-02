@@ -1712,7 +1712,12 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Query Syntax Here
-          
+            list = (from p in products
+                    select p)
+                      .IntersectBy<Product, int>(
+                          from sale in sales
+                          select sale.ProductID,
+                          p => p.ProductID).ToList();
 
             return list;
         }
@@ -1730,7 +1735,10 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Method Syntax Here
-
+            list = products.IntersectBy<Product,int>(
+                sales.Select(s => s.ProductID),
+                p => p.ProductID)
+                .ToList();
 
             return list;
         }
