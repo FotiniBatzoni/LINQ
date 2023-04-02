@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.AnyMethod();
+    var result = vm.ContainsMethod();
         // Display Results
         vm.Display(result);
     }
