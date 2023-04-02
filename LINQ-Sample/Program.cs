@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.ChunkMethod();
+    var result = vm.AllMethod();
         // Display Results
         vm.Display(result);
     }
