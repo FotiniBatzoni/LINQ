@@ -1210,22 +1210,24 @@ namespace LINQSamples
         {
             bool value = false;
             // Create a list of products
-            List<Product> list1 = new()
-      {
-        new Product { ProductID = 1, Name = "Product 1" },
-        new Product { ProductID = 2, Name = "Product 2" },
-      };
-            // Create a list of products
-            List<Product> list2 = new()
-      {
-        new Product { ProductID = 1, Name = "Product 1" },
-        new Product { ProductID = 2, Name = "Product 2" },
-      };
+                    List<Product> list1 = new()
+              {
+                new Product { ProductID = 1, Name = "Product 1" },
+                new Product { ProductID = 2, Name = "Product 2" },
+              };
+                    // Create a list of products
+                    List<Product> list2 = new()
+              {
+                new Product { ProductID = 1, Name = "Product 1" },
+                new Product { ProductID = 2, Name = "Product 2" },
+              };
 
             // Make Collections the Same
-            // list2 = list1;
+            list2 = list1;
 
             // Write Query Syntax Here
+            value = (from prod in list1
+                     select prod).SequenceEqual(list2); 
 
 
             return value;
@@ -1240,23 +1242,23 @@ namespace LINQSamples
         {
             bool value = false;
             // Create a list of products
-            List<Product> list1 = new()
-      {
-        new Product { ProductID = 1, Name = "Product 1" },
-        new Product { ProductID = 2, Name = "Product 2" },
-      };
-            // Create a list of products
-            List<Product> list2 = new()
-      {
-        new Product { ProductID = 1, Name = "Product 1" },
-        new Product { ProductID = 2, Name = "Product 2" },
-      };
+               List<Product> list1 = new()
+              {
+                new Product { ProductID = 1, Name = "Product 1" },
+                new Product { ProductID = 2, Name = "Product 2" },
+              };
+                    // Create a list of products
+                    List<Product> list2 = new()
+              {
+                new Product { ProductID = 1, Name = "Product 1" },
+                new Product { ProductID = 2, Name = "Product 2" },
+              };
 
             // Make Collections the Same
-            // list2 = list1;
+             list2 = list1;
 
             // Write Method Syntax Here
-
+            value = list1.SequenceEqual(list2);
 
             return value;
         }
