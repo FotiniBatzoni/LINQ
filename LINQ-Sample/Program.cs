@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.IntersectUsingComparerMethod();
+    var result = vm.IntersectByMethod();
         // Display Results
         vm.Display(result);
     }

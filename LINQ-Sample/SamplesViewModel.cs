@@ -1673,7 +1673,9 @@ namespace LINQSamples
             List<string> colors = new() { "Red", "Black" };
 
             // Write Query Syntax Here
-
+            list = (from p in products
+                    select p)
+                    .IntersectBy(colors, p => p.Color).ToList();
 
             return list;
         }
@@ -1692,7 +1694,7 @@ namespace LINQSamples
             List<string> colors = new() { "Red", "Black" };
 
             // Write Method Syntax Here
-
+            list = products.IntersectBy(colors, p => p.Color).ToList();
 
             return list;
         }
@@ -1710,7 +1712,7 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Query Syntax Here
-
+          
 
             return list;
         }
