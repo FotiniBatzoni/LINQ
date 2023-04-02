@@ -1066,7 +1066,9 @@ namespace LINQSamples
             bool value = false;
 
             // Write Query Syntax Here
-
+            value = (from s in sales
+                     select s)
+                     .Any(s => s.LineTotal >10000);
 
             return value;
         }
@@ -1082,7 +1084,7 @@ namespace LINQSamples
             bool value = false;
 
             // Write Method Syntax Here
-
+            value = sales.Any(s => s.LineTotal > 10000);
 
             return value;
         }

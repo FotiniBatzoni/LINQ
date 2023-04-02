@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.AllSalesMethod();
+    var result = vm.AnyMethod();
         // Display Results
         vm.Display(result);
     }
