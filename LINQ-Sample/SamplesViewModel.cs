@@ -1032,7 +1032,9 @@ namespace LINQSamples
             bool value = false;
 
             // Write Query Syntax Here
-
+            value = (from s in sales
+                     select s)
+                     .All(s => s.OrderQty >= 1 ); 
 
             return value;
         }
@@ -1048,7 +1050,7 @@ namespace LINQSamples
             bool value = false;
 
             // Write Method Syntax Here
-
+            value = sales.All(s => s.OrderQty >= 1);
 
             return value;
         }
