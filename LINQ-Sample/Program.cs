@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.SequenceEqualUsingComparerMethod();
+    var result = vm.ExceptIntegersMethod();
         // Display Results
         vm.Display(result);
     }

@@ -1328,7 +1328,9 @@ namespace LINQSamples
             List<int> list2 = new() { 3, 4, 5 };
 
             // Write Query Syntax Here
-
+            list = (from prod in list1
+                    select prod)
+                    .Except(list2).ToList();
 
             return list;
         }
@@ -1347,7 +1349,7 @@ namespace LINQSamples
             List<int> list2 = new() { 3, 4, 5 };
 
             // Write Method Syntax Here
-
+            list = list1.Except(list2).ToList();
 
             return list;
         }
