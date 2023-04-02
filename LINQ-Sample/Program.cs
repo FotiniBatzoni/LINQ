@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.ContainsMethod();
+    var result = vm.ContainsComparerMethod();
         // Display Results
         vm.Display(result);
     }
