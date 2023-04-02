@@ -1458,7 +1458,9 @@ namespace LINQSamples
             List<string> colors = new() { "Red", "Black" };
 
             // Write Query Syntax Here
-
+            list = (from p in products
+                    select p)
+                    .ExceptBy(colors, p => p.Color).ToList();
 
             return list;
         }
@@ -1479,7 +1481,7 @@ namespace LINQSamples
             List<string> colors = new() { "Red", "Black" };
 
             // Write Method Syntax Here
-
+            list = products.ExceptBy(colors, products => products.Color).ToList();
 
             return list;
         }

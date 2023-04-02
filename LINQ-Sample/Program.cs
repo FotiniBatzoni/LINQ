@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.ExceptUsingComparerMethod();
+    var result = vm.ExceptByMethod();
         // Display Results
         vm.Display(result);
     }
