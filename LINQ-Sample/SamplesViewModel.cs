@@ -1542,7 +1542,9 @@ namespace LINQSamples
             List<int> list2 = new() { 3, 4, 5 };
 
             // Write Query Syntax Here
-
+            list = (from num in list1
+                    select num)
+                    .Intersect(list2).ToList();
 
             return list;
         }
@@ -1561,7 +1563,7 @@ namespace LINQSamples
             List<int> list2 = new() { 3, 4, 5 };
 
             // Write Method Syntax Here
-
+            list = list1.Intersect(list2).ToList();
 
             return list;
         }

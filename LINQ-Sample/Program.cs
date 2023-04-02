@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.ExceptByProductSalesMethod();
+    var result = vm.IntersectIntegersMethod();
         // Display Results
         vm.Display(result);
     }
