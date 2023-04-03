@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.GroupBySubQueryMethod();
+    var result = vm.GroupByDistinctQuery();
         // Display Results
         vm.Display(result);
     }
