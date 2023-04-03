@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.InnerJoinTwoFieldsMethod();
+    var result = vm.JoinIntoMethod();
         // Display Results
         vm.Display(result);
     }

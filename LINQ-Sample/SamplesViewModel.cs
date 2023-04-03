@@ -2157,6 +2157,16 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Method Syntax Here
+            list = (from prod in products
+                    orderby prod.ProductID
+                    join sale in sales
+                    on prod.ProductID equals sale.ProductID
+                    into newSales
+                    select new ProductSales
+                    {
+                        Product = prod,
+                        Sales = newSales.OrderBy(s => s.SalesOrderID).ToList()
+                    }).ToList();
 
 
             return list;
