@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.LeftOuterJoinMethod();
+    var result = vm.GroupByMethod();
         // Display Results
         vm.Display(result);
     }
