@@ -2195,7 +2195,25 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Query Syntax Here
-
+            list = (from prod in products
+                    join sale in sales
+                    on prod.ProductID equals sale.ProductID
+                    into newSales
+                    from sale in newSales.DefaultIfEmpty()
+                    select new ProductOrder
+                    {
+                        ProductID = prod.ProductID,
+                        Name = prod.Name,
+                        Color = prod.Color,
+                        StandardCost = prod.StandardCost,
+                        ListPrice = prod.ListPrice,
+                        Size = prod.Size,
+                        SalesOrderID = sale?.SalesOrderID, //use the null-conditional operator
+                        OrderQty = sale?.OrderQty,
+                        UnitPrice = sale?.UnitPrice,
+                        LineTotal = sale?.LineTotal
+                    })
+                    .OrderBy(p => p.Name).ToList();
 
             return list;
         }
