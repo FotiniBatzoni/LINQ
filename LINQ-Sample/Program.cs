@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.GroupByMethod();
+    var result = vm.GroupByUsingKeyQuery();
         // Display Results
         vm.Display(result);
     }

@@ -2305,7 +2305,10 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax Here
-
+            list = (from prod in products
+                    group prod by prod.Size into sizes
+                    orderby sizes.Key
+                    select sizes).ToList();
 
             return list;
         }
@@ -2322,7 +2325,10 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax Here
-
+            list = products.GroupBy(prod => prod.Size)
+                            .OrderBy(sizes => sizes.Key) 
+                            .Select(sizes => sizes)
+                            .ToList();
 
             return list;
         }
