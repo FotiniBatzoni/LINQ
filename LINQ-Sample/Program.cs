@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.LeftOuterJoinQuery();
+    var result = vm.LeftOuterJoinMethod();
         // Display Results
         vm.Display(result);
     }
