@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.IntersectByProductSalesMethod();
+    var result = vm.InnerJoinTwoFieldsMethod();
         // Display Results
         vm.Display(result);
     }
