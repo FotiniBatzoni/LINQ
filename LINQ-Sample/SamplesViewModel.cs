@@ -2363,7 +2363,11 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax Here
-
+            list = (from prod in products
+                    orderby prod.Size
+                    group prod by prod.Size into sizes
+                    where sizes.Count() >2
+                    select sizes).ToList();
 
             return list;
         }
@@ -2381,7 +2385,11 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax Here
-
+            list = products.OrderBy(p => p.Size)
+                            .GroupBy(prod => prod.Size)
+                            .Where(sizes => sizes.Count() >2)
+                            .Select(sizes => sizes)
+                           .ToList();
 
             return list;
         }
