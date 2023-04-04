@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.MaxByMethod();
+    var result = vm.AverageMethod();
         // Display Results
         vm.Display(result);
     }

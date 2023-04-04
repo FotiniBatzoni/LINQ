@@ -2750,10 +2750,14 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax #1 Here
-
+            value = (from prod in products
+                     select prod.ListPrice)
+                     .Average();
 
             // Write Query Syntax #2 Here
-
+            value = (from prod in products
+                     select prod) 
+                     .Average(p => p.ListPrice);
 
             return value;
         }
@@ -2770,10 +2774,10 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax #1 Here
-
+            value = products.Select(p => p.ListPrice).Average();
 
             // Write Method Syntax #2 Here
-
+            value = products.Average(p => p.ListPrice);
 
             return value;
         }
