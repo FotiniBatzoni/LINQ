@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.GroupByDistinctQuery();
+    var result = vm.CountMethod();
         // Display Results
         vm.Display(result);
     }
