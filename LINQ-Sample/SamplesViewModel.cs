@@ -2679,7 +2679,9 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax Here
-
+            product = (from prod in products
+                       select prod)
+                       .MinBy(prod => prod.ListPrice);
 
             return product;
         }
@@ -2696,7 +2698,7 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax Here
-
+            product = products.MinBy(prod => prod.ListPrice);
 
             return product;
         }
