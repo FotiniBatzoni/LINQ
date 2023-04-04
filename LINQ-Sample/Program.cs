@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.CountMethod();
+    var result = vm.CountFilteredMethod();
         // Display Results
         vm.Display(result);
     }

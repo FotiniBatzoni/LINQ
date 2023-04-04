@@ -2546,10 +2546,16 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax #1 Here
+            value = (from prod in products
+                     select prod)
+                     .Count(p => p.Color=="Red");
 
 
             // Write Query Syntax #2 Here
-
+            value = (from prod in products
+                     where prod.Color == "Red"
+                     select prod)
+                     .Count();
 
             return value;
         }
@@ -2566,10 +2572,10 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax #1 Here
-
+            value = products.Count(p => p.Color == "Red");
 
             // Write Method Syntax #2 Here
-
+            value = products.Where(p => p.Color == "Red").Count();
 
             return value;
         }
