@@ -2980,8 +2980,11 @@ namespace LINQSamples
 
                             //Iterate over the collection one time
                             //and claculate all stats for this Size Group
-                            sizeGroup.Aggregate(acc, (acc, prod) => acc.Accumulate(prod),
-                                                                    acc => acc.ComputeAverage());
+                            sizeGroup.Aggregate(acc, (acc, prod) => 
+                                    acc.Accumulate(prod),
+                                    acc => acc.ComputeAverage());
+
+                            //return accumulative result
                             return acc;
                         })
                         .OrderBy(result => result.Size).ToList();
@@ -3002,7 +3005,10 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Query Syntax Here
-
+            sales = (from sale in sales
+                     let temp = sale.LineTotal = sale.OrderQty * sale.UnitPrice
+                     select sale)
+                     .ToList();
 
             return sales;
         }
@@ -3013,13 +3019,13 @@ namespace LINQSamples
         /// ForEach allows you to iterate over a collection to perform assignments within each object.
         /// Assign the LineTotal from the OrderQty * UnitPrice
         /// </summary>
-        public List<SalesOrder> ForEachMethod()
+        public List<SalesOrder>  ForEachMethod()
         {
             // Get all Sales Data
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Method Syntax Here
-
+            sales.ForEach(sale => sale.LineTotal = sale.OrderQty * sale.UnitPrice);
 
             return sales;
         }

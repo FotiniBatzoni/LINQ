@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.AggregateMoreEfficientMethod();
+    var result = vm.ForEachMethod();
         // Display Results
         vm.Display(result);
     }
