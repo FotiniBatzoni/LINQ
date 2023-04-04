@@ -2874,7 +2874,10 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Query Syntax Here
-           
+            value = (from sale in sales
+                     select sale)
+                     .Aggregate(0M, (sum, sale) =>
+                         sum += (sale.OrderQty * sale.UnitPrice));
 
             return value;
         }
@@ -2891,7 +2894,8 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Method Syntax Here
-
+            value = sales.Aggregate(0M, (sum, sale) =>
+                sum += (sale.OrderQty * sale.UnitPrice));
 
             return value;
         }

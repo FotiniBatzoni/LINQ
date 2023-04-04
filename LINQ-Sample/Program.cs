@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.AggregateMethod();
+    var result = vm.AggregateCustomMethod();
         // Display Results
         vm.Display(result);
     }
