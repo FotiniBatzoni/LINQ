@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.AverageMethod();
+    var result = vm.SumMethod();
         // Display Results
         vm.Display(result);
     }
