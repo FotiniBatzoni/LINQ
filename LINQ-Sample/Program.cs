@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.ForEachSubQueryMethod();
+    var result = vm.ForEachQueryCallingMethod();
         // Display Results
         vm.Display(result);
     }

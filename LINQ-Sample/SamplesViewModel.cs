@@ -3088,10 +3088,14 @@ namespace LINQSamples
 
             // Write Query Syntax Here
 
+            var list = (from prod in products
+                        let temp = prod.TotalSales = CalculateTotalSalesForProduct(prod, sales)
+                        select prod);
+
+            list = list.Where(prod => prod.TotalSales > 0);
 
 
-
-            return null;
+            return list.ToList();
         }
         #endregion
 
@@ -3123,7 +3127,8 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Method Syntax Here
-
+            products.ForEach(p => p.TotalSales = CalculateTotalSalesForProduct(p, sales));
+            products = products.Where(p => p.TotalSales > 0).ToList();
 
             return products;
         }
