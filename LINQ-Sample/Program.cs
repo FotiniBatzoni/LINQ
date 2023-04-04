@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.MinByMethod();
+    var result = vm.MaxByMethod();
         // Display Results
         vm.Display(result);
     }

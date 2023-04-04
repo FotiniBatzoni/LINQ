@@ -2715,7 +2715,8 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax Here
-
+            product = (from prod in products
+                       select prod).MaxBy(p => p.ListPrice);
 
             return product;
         }
@@ -2732,7 +2733,7 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax Here
-
+            product = products.MaxBy(p => p.ListPrice);
 
             return product;
         }
