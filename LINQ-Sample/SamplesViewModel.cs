@@ -2968,7 +2968,23 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax Here
+            list = products.GroupBy(sale => sale.Size)
+                        .Where(sizeGroup => sizeGroup.Count() > 0)
+                        .Select(sizeGroup =>
+                        {
+                            //Create the accumulator object and set the size
+                            ProductStats acc = new()
+                            {
+                                Size = sizeGroup.Key
+                            };
 
+                            //Iterate over the collection one time
+                            //and claculate all stats for this Size Group
+                            sizeGroup.Aggregate(acc, (acc, prod) => acc.Accumulate(prod),
+                                                                    acc => acc.ComputeAverage());
+                            return acc;
+                        })
+                        .OrderBy(result => result.Size).ToList();
 
             return list;
         }
