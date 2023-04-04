@@ -2837,7 +2837,10 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax Here
-
+            value = (from prod in products
+                     select prod)
+                     .Aggregate(0M, (sum, prod) =>
+                          sum + prod.ListPrice);
 
             return value;
         }
@@ -2854,7 +2857,7 @@ namespace LINQSamples
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax Here
-
+            value = products.Aggregate(0M, (sum, prod) => sum += prod.ListPrice);
 
             return value;
         }
@@ -2871,7 +2874,7 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Query Syntax Here
-
+           
 
             return value;
         }
