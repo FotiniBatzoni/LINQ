@@ -3043,7 +3043,11 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Query Syntax Here
-
+            products = (from prod in products
+                        let temp = prod.TotalSales =
+                        sales.Where(sale => sale.ProductID == prod.ProductID)
+                        .Sum(sale => sale.LineTotal)
+                        select prod).ToList();
 
             return products;
         }
@@ -3061,7 +3065,8 @@ namespace LINQSamples
             List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
             // Write Method Syntax Here
-
+            products.ForEach(p => p.TotalSales = sales.Where(sale => sale.ProductID == p.ProductID)
+                       .Sum(sale => sale.LineTotal));
 
             return products;
         }
