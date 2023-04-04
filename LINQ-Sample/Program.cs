@@ -7,7 +7,7 @@
     {
 
     // Call Sample Method
-    var result = vm.CountFilteredMethod();
+    var result = vm.MinMethod();
         // Display Results
         vm.Display(result);
     }
